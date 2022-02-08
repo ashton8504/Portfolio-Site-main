@@ -1,0 +1,285 @@
+/*CSS Page for my Portfolio website */
+/* Colors Used:
+Hex Grey/Blue: #6d7993 = Text Color
+Hex dark/white: #e8dcdc = Primary Color
+Hex Royal Blue: #003366 = Secondary Color
+*/
+
+/* Task 1.8 colors*/
+
+:root {
+  --link-color: #357b70;
+  --primary-color: #2b68a1;
+  --secondary-color: #e0b354;
+  --background-color: #e8dcdc;
+  --white: #ffffff;
+  --black: #000000;
+  --primary-font-weight: 400px;
+  --navigation-list-color: #003e67;
+  --navigation-list-background: #0d6892;
+  --active-link-color: #489c79;
+  --sun-color-one: #edc655;
+  --sun-color-two: #fcffad;
+  --sun-color-three: #f76414;
+  --body-font-weight: 15px;
+  --h1-font-weight: 50px;
+  --h2-font-weight: 20px;
+  --about_me-font-size: 25px;
+  --about_me-font-paragraph: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: var(--primary-font-weight);
+  font-size: var(--body-font-weight);
+  line-height: 1.3;
+  background-color: var(--background-color);
+}
+
+h1 {
+  font-size: var(--h1-font-weight);
+  font-weight: var(--primary-font-weight);
+}
+
+h2 {
+  font-size: var(--h2-font-weight);
+  font-weight: var(--primary-font-weight);
+}
+
+/* Buttons and link colors*/
+
+a:hover {
+  /* No underlining when hovering over a link */
+  text-decoration: none;
+}
+
+a:visited {
+  /* visited link */
+  color: var(--black);
+}
+
+a:active {
+  /* selected link */
+  color: var(--active-link-color);
+}
+
+a:hover,
+a:focus {
+  /* No underlining when hovering over a link */
+  text-decoration: none;
+}
+p {
+  text-align: center;
+}
+
+.about {
+  text-align: center;
+  font-weight: bold;
+}
+
+button,
+.button {
+  border: none;
+  display: inline-block;
+  font-family: inherit;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition-duration: 0.9s;
+  transition-property: opacity;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.button__secondary {
+  background-color: var(--secondary-color);
+  color: var(--black);
+}
+
+.navigation-list__item--active {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navigation-list__item {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.profile_portrait {
+  float: left;
+  width: 250px;
+  margin-right: 40px;
+  border-radius: 50%;
+}
+
+.page-footer {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.page-header {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+}
+
+.page-header__item {
+  flex: 0 1 200px;
+}
+
+.page-header .page-header__item:last-child {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.profile {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.profile_text {
+  flex: 1 1 100px;
+}
+
+.navigation-list li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.navigation-list li {
+  color: var(--navigation-list-color);
+  text-decoration: none;
+  padding: 10px 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.navigation-list li a:before,
+.navigation-list__item--active:after {
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  left: 0px;
+  bottom: 0px;
+  content: "";
+  background: var(--navigation-list-background);
+  opacity: 0.3;
+  transition: all 0.3s linear;
+}
+
+.navigation-list li a:hover:before,
+.navigation-list li a:focus:before {
+  height: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.grid__item {
+  background-color: rgb(235, 229, 229);
+}
+
+.resume {
+  text-align: center;
+}
+
+@media all and (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    fill: var(--sun-color-one);
+  }
+  50% {
+    fill: var(--sun-color-two);
+  }
+  100% {
+    fill: var(--sun-color-three);
+  }
+}
+
+.sun {
+  animation: 5s color-change infinite alternate linear;
+}
+
+@keyframes cloud-move {
+  from {
+    transform: translate(0, 50px);
+  }
+  to {
+    transform: translate(200px, 50px);
+  }
+}
+
+.cloud-front {
+  animation: 30s cloud-move infinite alternate linear;
+}
+
+@keyframes cloud-move-reverse {
+  from {
+    transform: translate(446px, 48px);
+  }
+  to {
+    transform: translate(100px, 48px);
+  }
+}
+
+.cloud-back {
+  animation: 34s cloud-move-reverse infinite alternate linear;
+}
+
+hr {
+  border-style: ridge;
+  border-color: var(--black);
+  border-width: 1px 0;
+  margin: 15px;
+}
+
+.about_me {
+  margin: 0 auto;
+  font-family: bold;
+  font-size: var(--about_me-font-size);
+}
+
+.about-me-paragraph {
+  font-size: var(--about_me-font-paragraph);
+}
